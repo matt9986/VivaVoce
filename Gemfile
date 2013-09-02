@@ -42,3 +42,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+# Backbone!
+gem 'backbone-on-rails'
+
+# Rabl Rabl Rabl
+gem 'rabl'
