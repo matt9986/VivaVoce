@@ -1,0 +1,80 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-09-02 15:11:22 -0700
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (28ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-02 15:11:54 -0700
+Processing by BusinessesController#index as HTML
+  Rendered businesses/index.html.erb within layouts/application (21.0ms)
+Compiled businesses.css  (30ms)  (pid 8912)
+Compiled reviews.css  (7ms)  (pid 8912)
+Compiled sessions.css  (8ms)  (pid 8912)
+Compiled users.css  (6ms)  (pid 8912)
+Compiled application.css  (236ms)  (pid 8912)
+Compiled jquery.js  (9ms)  (pid 8912)
+Compiled jquery_ujs.js  (0ms)  (pid 8912)
+Compiled businesses.js  (1942ms)  (pid 8912)
+Compiled reviews.js  (403ms)  (pid 8912)
+Compiled sessions.js  (348ms)  (pid 8912)
+Compiled users.js  (342ms)  (pid 8912)
+Compiled application.js  (3448ms)  (pid 8912)
+Completed 200 OK in 4046ms (Views: 4045.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /sessions.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /reviews.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /jquery.js - 200 OK (13ms)
+
+
+Started GET "/assets/businesses.css?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /businesses.css - 200 OK (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /application.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /users.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /jquery_ujs.js - 200 OK (6ms)
+
+
+Started GET "/assets/businesses.js?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /businesses.js - 200 OK (3ms)
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /reviews.js - 200 OK (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /sessions.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /users.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /application.js - 200 OK (15ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2013-09-02 15:11:59 -0700
+Served asset /logo.png - 200 OK (37ms)
