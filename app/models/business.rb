@@ -11,4 +11,8 @@ class Business < ActiveRecord::Base
   def get_lat_long
 
   end
+
+  def find_near_coord(lat, long, dist)
+
+  end
 end

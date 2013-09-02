@@ -1,4 +1,12 @@
 VivaVoce::Application.routes.draw do
+  resource :session, only: [:create, :destroy]
+  resources :businesses do
+    resources :reviews
+  end
+  resources :users
+
+  root to: "businesses#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
