@@ -29,6 +29,7 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -51,6 +52,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     multi_json (1.7.9)
+    pg (0.16.0-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -102,8 +104,10 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   jquery-rails
+  pg
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
   sqlite3
