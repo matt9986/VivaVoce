@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+	before_filter :check_login, except: :index
+	before_filter :check_auth, only: [:destroy, :update]
+
 	def create
 		params[:review][:user_id] = current_user.id
 		params[:review][:business_id] = params[:business_id]
@@ -16,7 +19,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def destroy
-		@review = Review.find(params[:id])
+		@review ||= Review.find(params[:id])
 		@review.destroy
 		render json: "Review deleted"
 	end
@@ -28,5 +31,12 @@ class ReviewsController < ApplicationController
 
 	def update
 
+	end
+
+	def check_auth
+		@review = Review.find(params[:id])
+		unless current_user.id == @review.user_id
+			render json: "You're not allowed", status: 403
+		end
 	end
 end

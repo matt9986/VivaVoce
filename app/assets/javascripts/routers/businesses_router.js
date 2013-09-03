@@ -1,6 +1,7 @@
 VivaVoce.Routers.Businesses = Backbone.Router.extend({
 	routes: {
 		"":"index",
+		"businesses/:id/reviews/new":"newReview",
 		"businesses/:id":"show"
 	},
 
@@ -12,6 +13,13 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 
 	index: function () {
 		var view = new VivaVoce.Views.BusinessesIndex({collection: this.collection});
+		this._swapView(view);
+	},
+
+	newReview: function (business_id) {
+		var model = this.collection.get(business_id);
+		var collection = model.get("reviews");
+		var view = new VivaVoce.Views.ReviewsNew({collection: collection});
 		this._swapView(view);
 	},
 
