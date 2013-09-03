@@ -7,9 +7,15 @@ window.VivaVoce = {
   initialize: function () {
     var $rootEl = $("body");
 		var collection = new this.Collections.Businesses();
-		collection.fetch();
-		new this.Routers.Businesses($rootEl, collection);
-		Backbone.history.start();
+    var header = new this.Views.VivaVoceHeader();
+    $rootEl.prepend(header.render().$el);
+		collection.fetch({
+      success: function (){
+        new VivaVoce.Routers.Businesses($rootEl, collection);
+        Backbone.history.start();
+
+      }
+    });
   }
 };
 
