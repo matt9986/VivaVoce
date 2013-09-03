@@ -1,0 +1,7 @@
+<ul>
+	<% businesses.each(function (business) { %>
+		<li>
+		<%= JST['businesses/_business_partial']({business: business}) %>
+		</li>
+	<% }) %>
+</ul>

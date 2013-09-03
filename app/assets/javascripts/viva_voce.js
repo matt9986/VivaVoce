@@ -3,11 +3,16 @@ window.VivaVoce = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    alert('Hello from Backbone!');
+
+  initialize: function () {
+    var $rootEl = $("body");
+		var collection = new this.Collections.Businesses();
+		collection.fetch();
+		new this.Routers.Businesses($rootEl, collection);
+		Backbone.history.start();
   }
 };
 
-$(document).ready(function(){
+$(document).ready(function () {
   VivaVoce.initialize();
 });
