@@ -1,0 +1,12 @@
+<h2><%= business.escape('name') %></h2>
+<p><%= business.escape('street_address') %></p>
+<p>
+	<%= business.escape('city') %>, <%= business.escape('sate') %> <%= business.escape('zip') %>
+</p>
+
+<h3>Reviews</h3>
+<div class="review_table"></div>
+
+<a href="#/businesses/<%= business.id %>/reviews/new">
+	Write a review!
+</a>

@@ -1,0 +1,7 @@
+<ul>
+	<% reviews.each(function(review){ %>
+		<li>
+			<%= review.escape("body") %>
+		</li>
+	<% }) %>
+</ul>

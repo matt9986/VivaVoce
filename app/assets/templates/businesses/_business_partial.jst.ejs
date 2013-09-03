@@ -1,5 +1,9 @@
 <div data_id="business<%= business.id %>">
-	<h3><%= business.escape("name") %></h3>
+	<h3>
+		<a href="#/businesses/<%= business.id %>">
+			<%= business.escape("name") %>
+		</a>
+	</h3>
 	<p><%= business.escape("street_address") %></p>
 	<p><%= business.escape("city") %>, <%= business.escape("state") %> <%= business.escape("zip") %></p>
 </div>

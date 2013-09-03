@@ -7,7 +7,7 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 	initialize: function ($rootEl, collection) {
 		this.$rootEl = $rootEl;
 		this.collection = collection;
-		collection.fetch()
+		collection.fetch();
 	},
 
 	index: function () {
@@ -16,7 +16,9 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 	},
 
 	show: function (id) {
-
+		var model = this.collection.get(id);
+		var view = new VivaVoce.Views.BusinessesShow({model: model});
+		this._swapView(view);
 	},
 
 
