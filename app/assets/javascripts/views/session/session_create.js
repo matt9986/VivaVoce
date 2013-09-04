@@ -31,7 +31,9 @@ VivaVoce.Views.SessionCreate = Backbone.View.extend({
   },
 
   checkRemove: function () {
-  	console.log("blur!")
+		console.log("blur!");
+		console.log(event.target);
+		console.log(event.currentTarget);
 		if (event.target == event.currentTarget){
 			debugger;
 			this.remove();
