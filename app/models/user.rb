@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :zip_code, :username
+  attr_accessible :email, :password, :username
   validates :email, :username, :session_token, presence: true, uniqueness: true
   validates :pass_hash, presence: true
 

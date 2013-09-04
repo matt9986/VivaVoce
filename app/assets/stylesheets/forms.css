@@ -1,0 +1,13 @@
+.coverWindow {
+	/*opacity:    0.5; */
+	background: blue; 
+	width:      300px;
+	height:     500px; 
+	z-index:    10;
+	top:        10%; 
+	left:       50%; 
+	margin-left: -150px;
+	position:   fixed;
+	text-align: center;
+	border-radius: 15px;
+}
