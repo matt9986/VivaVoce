@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
 			ActiveRecord::Base.transaction do
 				@review = Review.new(params[:review])
 
+				@review.save
 				raise "invalid" unless @review.valid?
 			end
 		rescue
@@ -26,7 +27,7 @@ class ReviewsController < ApplicationController
 
 	def index
 		@business = Business.find(params[:business_id])
-		@reviews = Business.reviews.includes(:user)
+		@reviews = @business.reviews.includes(:user)
 	end
 
 	def update

@@ -10,10 +10,11 @@ VivaVoce.Views.BusinessesShow = Backbone.View.extend({
 		
 		this.$el.html(this.template({business: this.model}));
 		var reviewView = new VivaVoce.Views.ReviewsIndex({
-			$el: this.$el.find(".review_table"),
+			// $el: this.$el.find(".review_table"),
 			collection: this.model.get("reviews")
 		});
 		reviewView.render();
+		this.$el.find(".review_table").html(reviewView.$el);
 		return this;
   }
 

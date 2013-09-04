@@ -16,9 +16,9 @@ VivaVoce.Views.ReviewsNew = Backbone.View.extend({
 		event.preventDefault();
 		var json = $(event.target).serializeJSON();
 		this.collection.create(json, {
-			success: function () {
-				console.log("What?");
-			},
+			// success: function () {
+			// 	console.log("What?");
+			// },
 			error: function () {
 				var view = new VivaVoce.Views.SessionCreate();
 				view.render();

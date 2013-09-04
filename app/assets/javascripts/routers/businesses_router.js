@@ -26,6 +26,7 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 	show: function (id) {
 		var model = this.collection.get(id);
 		var view = new VivaVoce.Views.BusinessesShow({model: model});
+		model.get("reviews").fetch({reset: true});
 		this._swapView(view);
 	},
 
