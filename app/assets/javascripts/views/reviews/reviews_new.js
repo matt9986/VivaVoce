@@ -12,17 +12,25 @@ VivaVoce.Views.ReviewsNew = Backbone.View.extend({
   },
 
   save: function () {
-  	var that = this;
+		var that = this;
 		event.preventDefault();
 		var json = $(event.target).serializeJSON();
 		this.collection.create(json, {
-			// success: function () {
-			// 	console.log("What?");
+			//	success: function () {
+			//	console.log("What?");
 			// },
-			error: function () {
-				var view = new VivaVoce.Views.SessionCreate();
-				view.render();
-				that.$el.prepend(view.$el);
+			error: function (sent, response) {
+				if (response.status == 401){
+					var view = new VivaVoce.Views.SessionCreate();
+					view.render();
+					that.$el.prepend(view.$el);
+				} else if (response.status == 422) {
+					_.each(response.responseJSON, function (error){
+						that.$el.prepend("<p>"+error+"</p>");
+					});
+				} else {
+					that.$el.prepend("<p>I don't know what happened</p>");
+				}
 			}
 	});
   }

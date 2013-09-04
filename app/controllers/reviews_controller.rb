@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 				raise "invalid" unless @review.valid?
 			end
 		rescue
-			render json: "Fail in saving", status: 422
+			render json: @review.errors.full_messages, status: 422
 		else
 			render json: @review
 		end
