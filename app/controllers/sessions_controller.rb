@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 		user = User.find_by_email(params[:user][:email])
 		if user && user.password == params[:user][:password]
 			log_in(user)
-
+			render json: user.username
 		else
 			render json: "There was a problem with your login information", status: 404
 		end

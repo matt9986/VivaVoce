@@ -3,6 +3,7 @@ window.VivaVoce = {
   Collections: {},
   Views: {},
   Routers: {},
+  Store: {},
 
   initialize: function () {
     var $rootEl = $("body");
