@@ -1,0 +1,4 @@
+<p>Hi, <%= username || "guest" 
+	%>! (<% if(username){
+	%><a href="#" id="logoutButton">Logout</a><%
+	}else{%><a href="#" id="loginButton">Sign in/up!</a><% } %>)</p>

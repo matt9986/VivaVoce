@@ -6,6 +6,8 @@ window.VivaVoce = {
   Store: {},
 
   initialize: function () {
+
+    this.startStore();
     var $rootEl = $("body");
 		var collection = new this.Collections.Businesses();
     var header = new this.Views.VivaVoceHeader();
@@ -17,6 +19,11 @@ window.VivaVoce = {
 
       }
     });
+  },
+
+  startStore: function () {
+    this.Store.session = new this.Models.Session();
+    this.Store.session.fetch();
   }
 };
 

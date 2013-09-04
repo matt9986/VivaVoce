@@ -1,5 +1,5 @@
 VivaVoce::Application.routes.draw do
-  resource :session, only: [:create, :destroy]
+  resource :session, only: [:create, :destroy, :show]
   resources :businesses do
     resources :reviews, except: [:show, :new, :edit]
   end

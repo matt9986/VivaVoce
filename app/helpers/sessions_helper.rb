@@ -22,9 +22,11 @@ module SessionsHelper
 	end
 
 	def log_out
-		current_user.reset_session
-		current_user.save!
-		session[:token] = nil
-		current_user = nil
+		if logged_in?
+			current_user.reset_session
+			current_user.save!
+			session[:token] = nil
+			current_user = nil
+		end
 	end
 end

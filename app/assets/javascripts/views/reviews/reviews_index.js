@@ -7,7 +7,6 @@ VivaVoce.Views.ReviewsIndex = Backbone.View.extend({
   },
 
 	render: function () {
-		console.log("rendered")
 		this.$el.html(this.template({reviews: this.collection}));
 		return this;
   }

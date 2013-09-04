@@ -18,8 +18,7 @@ VivaVoce.Views.SessionCreate = Backbone.View.extend({
 			data: form,
 			type: "POST",
 			success: function (response) {
-				console.log(response);
-
+				VivaVoce.Store.session.set({username: response.username});
 				that.remove();
 			}
 		});

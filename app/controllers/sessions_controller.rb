@@ -13,4 +13,12 @@ class SessionsController < ApplicationController
 		log_out
 		render json: "You've logged out"
 	end
+
+	def show
+		if logged_in?
+			render json: {username: current_user.username}
+		else
+			render json: nil, status: 200
+		end
+	end
 end
