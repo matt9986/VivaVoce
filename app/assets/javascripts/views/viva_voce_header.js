@@ -2,6 +2,8 @@ VivaVoce.Views.VivaVoceHeader = Backbone.View.extend({
 
   template: JST['headers/header'],
 
+  className: "header",
+
   initialize: function () {
   },
 

@@ -2,6 +2,10 @@ VivaVoce.Views.SessionButton = Backbone.View.extend({
 
   template: JST['session/logbutton'],
 
+  tagName: "p",
+
+  className: "sessionButton",
+
   events: {
 		"click a#loginButton":"popLogin",
 		"click a#logoutButton":"logout"
@@ -29,7 +33,7 @@ VivaVoce.Views.SessionButton = Backbone.View.extend({
 		event.preventDefault();
 		var view = new VivaVoce.Views.SessionCreate();
 		view.render();
-		this.$el.prepend(view.$el);
+		this.$el.append(view.$el);
   }
 
 });
