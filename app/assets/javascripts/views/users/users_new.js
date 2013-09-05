@@ -18,14 +18,17 @@ VivaVoce.Views.UsersNew = Backbone.View.extend({
 		var that = this;
 		event.preventDefault();
 		var form = $(event.target).serializeJSON();
-		var user = new VivaVoce.Models.User(form);
-		user.save({
-			success: function () {
-				VivaVoce.Store.session.set({username: user.username});
+		var user = new VivaVoce.Models.User(form.user);
+		user.save(null, {
+			success: function (response) {
+				VivaVoce.Store.session.set({username: response.get("username")});
 				that.remove();
 			},
-			error: function () {
-
+			error: function (sent, response) {
+				console.log("fail");
+				_.each(response.responseJSON, function (error){
+					that.$el.prepend("<p>"+error+"</p>");
+				});
 			}
 		});
   },

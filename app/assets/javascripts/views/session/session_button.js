@@ -24,8 +24,6 @@ VivaVoce.Views.SessionButton = Backbone.View.extend({
 
   logout: function () {
 		event.preventDefault();
-		console.log("Clicked logout");
-
 		VivaVoce.Store.session.destroy();
   },
 

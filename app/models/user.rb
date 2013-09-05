@@ -2,14 +2,14 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :username
-  validates :email, :username, :session_token, presence: true, uniqueness: true
+  validates :email, :username, presence: true, uniqueness: true
   validates :pass_hash, presence: true
 
   has_many :reviews
   has_many :businesses
   has_many :reviewed_businesses, through: :reviews, source: :business
 
-  before_validation :reset_session
+  # before_create :reset_session
 
   def password
   	@password || BCrypt::Password.new(self.pass_hash)
