@@ -24,6 +24,8 @@ window.VivaVoce = {
   startStore: function () {
     this.Store.session = new this.Models.Session();
     this.Store.session.fetch();
+    this.Store.geocoder = new google.maps.Geocoder();
+    this.Store.categories = ["sprouts", "silly"];
   }
 };
 
