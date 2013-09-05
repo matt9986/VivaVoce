@@ -1,12 +1,12 @@
-VivaVoce.Views.SessionCreate = Backbone.View.extend({
+VivaVoce.Views.UsersNew = Backbone.View.extend({
 
-  template: JST['session/create'],
+  template: JST['users/new'],
 
   className:"coverWindow",
 
   events:{
-		"submit form.newSession":"login",
-		"click a#swapForm":"renderNewUser",
+		"submit form.newUser":"create",
+		"click a#swapForm":"renderSession",
 		"click":"checkRemove"
   },
 
@@ -14,17 +14,18 @@ VivaVoce.Views.SessionCreate = Backbone.View.extend({
 		this.parentView = options.parentView;
   },
 
-  login: function () {
+  create: function () {
 		var that = this;
 		event.preventDefault();
-		var form = $(event.target).serialize();
-		$.ajax({
-			url:"/session",
-			data: form,
-			type: "POST",
-			success: function (response) {
-				VivaVoce.Store.session.set({username: response.username});
+		var form = $(event.target).serializeJSON();
+		var user = new VivaVoce.Models.User(form);
+		user.save({
+			success: function () {
+				VivaVoce.Store.session.set({username: user.username});
 				that.remove();
+			},
+			error: function () {
+
 			}
 		});
   },
@@ -34,9 +35,9 @@ VivaVoce.Views.SessionCreate = Backbone.View.extend({
 		return this;
   },
 
-  renderNewUser: function () {
+  renderSession: function () {
 		event.preventDefault();
-		var view = new VivaVoce.Views.UsersNew({parentView: this.parentView});
+		var view = new VivaVoce.Views.SessionCreate({parentView: this.parentView});
 		view.render();
 		this.parentView.$el.append(view.$el);
 		this.remove();

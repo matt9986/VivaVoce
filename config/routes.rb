@@ -3,7 +3,7 @@ VivaVoce::Application.routes.draw do
   resources :businesses do
     resources :reviews, except: [:show, :new, :edit]
   end
-  resources :users
+  resources :users, except: [:new, :edit]
 
   root to: "businesses#index"
 

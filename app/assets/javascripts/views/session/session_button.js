@@ -31,7 +31,7 @@ VivaVoce.Views.SessionButton = Backbone.View.extend({
 
   popLogin: function () {
 		event.preventDefault();
-		var view = new VivaVoce.Views.SessionCreate();
+		var view = new VivaVoce.Views.SessionCreate({parentView: this});
 		view.render();
 		this.$el.append(view.$el);
   }

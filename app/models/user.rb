@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :businesses
   has_many :reviewed_businesses, through: :reviews, source: :business
 
-  before_create :reset_session
+  before_validation :reset_session
 
   def password
   	@password || BCrypt::Password.new(self.pass_hash)
