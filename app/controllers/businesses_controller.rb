@@ -7,7 +7,7 @@ class BusinessesController < ApplicationController
 			unless search[:tags].empty?
 				puts "it thought there were tags"
 				@businesses.select! do |business|
-					(business.categories & search.tags).lenght > 0
+					(business.categories & search.tags.split(" ")).lenght > 0
 				end
 			end
 			@businesses.sort_by!{|business| business.distance_from(search[:lat].to_f,
