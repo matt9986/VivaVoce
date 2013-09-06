@@ -25,7 +25,6 @@ VivaVoce.Views.UsersNew = Backbone.View.extend({
 				that.remove();
 			},
 			error: function (sent, response) {
-				console.log("fail");
 				_.each(response.responseJSON, function (error){
 					that.$el.prepend("<p>"+error+"</p>");
 				});

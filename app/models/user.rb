@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :username
   validates :email, :username, presence: true, uniqueness: true
   validates :pass_hash, presence: true
+  validates_format_of :email, 
+  										:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,4})\Z/i, 
+  										:on => :create
 
   has_many :reviews
   has_many :businesses

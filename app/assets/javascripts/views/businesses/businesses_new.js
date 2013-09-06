@@ -46,7 +46,6 @@ VivaVoce.Views.BusinessesNew = Backbone.View.extend({
 			function (results) {
 				json.business.lat = results[0].geometry.location.lat();
 				json.business.long = results[0].geometry.location.lng();
-				debugger
 				callback(json);
 			});
   }
