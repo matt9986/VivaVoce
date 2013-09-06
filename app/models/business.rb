@@ -9,10 +9,27 @@ class Business < ActiveRecord::Base
   before_create :get_lat_long
 
   def get_lat_long
-
+# make the user incl lat/lng in submission of new business
   end
 
-  def find_near_coord(lat, long, dist)
+  def self.find_near_coord(lat, lng, dist = 80.5)
+    lat, lng = self.deg_to_rad( lat ), self.deg_to_rad( lng )
+    r = dist / 6371.0 #Dist is in km
 
+    lat_min, lat_max = self.rad_to_deg(lat - r), self.rad_to_deg(lat + r)
+
+    dlon = Math.asin(Math.sin(r)/Math.cos(lat))
+    lng_min, lng_max = self.rad_to_deg(lng - dlon), self.rad_to_deg(lng + dlon)
+
+    self.where(lat: lat_min .. lat_max, long: lng_min .. lng_max)
+  end
+
+  private
+  def self.deg_to_rad(deg)
+    (deg / 180.0) * Math::PI
+  end
+
+  def self.rad_to_deg(rad)
+    (rad * 180.0) / Math::PI
   end
 end
