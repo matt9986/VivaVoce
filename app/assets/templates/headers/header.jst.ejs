@@ -1,10 +1,17 @@
+<% var sample = _.shuffle(VivaVoce.Store.categories).slice(0,3) %>
 <a href="#">
 	<img src="assets/logo2.png" style="float: left">
 </a>
 <form class="search ui-widget">
 	<label for="business_tags">Find</label>
-	<input type="text" name="business[tags]" id="business_tags">
+	<input type="text" 
+		name="business[tags]" 
+		id="business_tags" 
+		placeholder="<%= sample.join(" ") %>...">
 	<label for="business_loc">Near</label>
-	<input type="text" name="business[loc]" id="business_loc">
+	<input type="text" 
+		name="business[loc]" 
+		id="business_loc"
+		placeholder="address or part of an address">
 	<input type="submit" value="Search">
 </form>
