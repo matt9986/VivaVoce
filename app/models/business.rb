@@ -12,7 +12,7 @@ class Business < ActiveRecord::Base
 # make the user incl lat/lng in submission of new business
   end
 
-  def self.find_near_coord(lat, lng, dist = 80.5)
+  def self.find_near_coord(lat, lng, dist = 40.2) # 25 mile "radius"
     lat, lng = self.deg_to_rad( lat ), self.deg_to_rad( lng )
     r = dist / 6371.0 #Dist is in km
 
@@ -31,5 +31,13 @@ class Business < ActiveRecord::Base
 
   def self.rad_to_deg(rad)
     (rad * 180.0) / Math::PI
+  end
+
+  def self.dist_from(lat, lng, business)
+    dlat = self.deg_to_rad(lat - business.lat)
+    dlon = self.deg_to_rad(lng - business.long)
+    a = ((Math.sin(dlat/2)**2)+(Math.sin(dlon/2)**2)*
+        Math.cos(deg_to_rad(lat))*Math.cos(deg_to_rad(business.lat)))
+    (2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))) * 6371.0 #km
   end
 end
