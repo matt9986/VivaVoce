@@ -1,18 +1,30 @@
 <form class="newSession formBox">
-		<h3>Sign in!</h3>
-	<label for="user_email">Email:</label>
-	<input type="text" 
-		name="user[email]" 
-		id="user_email" 
-		required = "required"
-		autofocus = "autofocus">
-	<br>
-	<label for="user_password">Password:</label>
-	<input type="password" 
-	name="user[password]" 
-	required = "required"
-	id="user_password">
-	<br>
+	<h3>Sign in!</h3>
+	<table>
+		<tr>
+			<td>
+				<label for="user_email">Email:</label>
+			</td>
+			<td>
+				<input type="text" 
+					name="user[email]" 
+					id="user_email" 
+					required = "required"
+					autofocus = "autofocus">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="user_password">Password:</label>
+			</td>
+			<td>
+				<input type="password" 
+					name="user[password]" 
+					required = "required"
+					id="user_password">
+			</td>
+		</tr>
+	</table>
 	<input type="submit" value="Log in!">
 	<br>
 	<br>
