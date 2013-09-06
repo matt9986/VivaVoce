@@ -1,0 +1,36 @@
+<form class="businessForm">
+	<label for= "business_name">Name:</label>
+	<input type="text" 
+		id="business_name" 
+		name="business[name]"
+		required = "required"
+		value="<%= business.escape("name") %>">
+	<br>
+	<label for="business_street_address">Street Address:</label>
+	<input type="text"
+		id="business_street_address"
+		name="business[street_address]"
+		value="<%= business.escape("street_address") %>">
+	<br>
+	<label for="business_city">City:</label>
+	<input type="text"
+		id="business_city"
+		name="business[city]"
+		required = "required"
+		value="<%= business.escape("city") %>">
+	<label for="business_state">State:</label>
+	<input type="text"
+		id="business_state"
+		name="business[state]"
+		required = "required"
+		value="<%= business.escape("state") %>">
+	<label for="business_zip">Zip:</label>
+	<input type="text"
+		id="business_zip"
+		name="business[zip]"
+		required = "required"
+		maxlength=5
+		value="<%= business.escape("zip") %>">
+	<br>
+	<input type="submit" value="Save the Business">
+</form>

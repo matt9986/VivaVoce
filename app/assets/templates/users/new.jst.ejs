@@ -1,13 +1,23 @@
 <form class="newUser formBox">
 	<h3>Sign Up!</h3>
 	<label for="user_username">Username:</label>
-	<input type="text" name="user[username]" id="user_username">
+	<input type="text"
+		name="user[username]" 
+		id="user_username"
+		required = "required" 
+		autofocus = "autofocus">
 	<br>
 	<label for="user_email">Email:</label>
-	<input type="text" name="user[email]" id="user_email">
+	<input type="text" 
+		name="user[email]" 
+		required = "required"
+		id="user_email">
 	<br>
 	<label for="user_password">Password:</label>
-	<input type="password" name="user[password]" id="user_password">
+	<input type="password" 
+	name="user[password]" 
+	required = "required"
+	id="user_password">
 	<br>
 	<input type="submit" value="Sign Up!">
 	<br>
