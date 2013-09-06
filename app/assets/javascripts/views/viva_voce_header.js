@@ -18,7 +18,9 @@ VivaVoce.Views.VivaVoceHeader = Backbone.View.extend({
 		// Gives autocomplete powers of Google addresses
 		this.$el.find("#business_loc").autocomplete({
 			source: function(request, response) {
-				VivaVoce.Store.geocoder.geocode({ address: request.term },
+				VivaVoce.Store.geocoder.geocode({
+						address: request.term
+					},
 					function(results){
 						response(_.map(results, function(item){
 							return {
@@ -29,14 +31,18 @@ VivaVoce.Views.VivaVoceHeader = Backbone.View.extend({
 					});
 			}
 		});
+		// Autocomplete for categories too
+		this.$el.find("#business_tags").autocomplete({
+			source: VivaVoce.Store.categories
+		});
 		this.$el.append(view.$el);
 		return this;
   },
 
   submitsearch: function (event) {
 		event.preventDefault();
-		var dataString = $(event.target).serialize();
-		Backbone.history.navigate("#/search/" + dataString);
+		var data = $(event.target).serializeJSON();
+		Backbone.history.navigate("#/searchresults/" + JSON.stringify(data));
   }
 
 });
