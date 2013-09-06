@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904210845) do
+ActiveRecord::Schema.define(:version => 20130906222543) do
 
   create_table "businesses", :force => true do |t|
     t.integer  "user_id"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(:version => 20130904210845) do
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
-    t.integer  "lat"
-    t.integer  "long"
+    t.string   "zip"
+    t.float    "lat"
+    t.float    "long"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(:version => 20130904210845) do
   create_table "reviews", :force => true do |t|
     t.string   "body"
     t.integer  "business_id"
-    t.string   "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "user_id",     :limit => 255
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "reviews", ["business_id"], :name => "index_reviews_on_business_id"
