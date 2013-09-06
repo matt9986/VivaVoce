@@ -24,6 +24,14 @@ class Business < ActiveRecord::Base
     self.where(lat: lat_min .. lat_max, long: lng_min .. lng_max)
   end
 
+  def dist_from(lat, lng)
+    dlat = self.class.deg_to_rad(lat - self.lat)
+    dlon = self.class.deg_to_rad(lng - self.long)
+    a = ((Math.sin(dlat/2)**2)+(Math.sin(dlon/2)**2)*
+        Math.cos(deg_to_rad(lat))*Math.cos(deg_to_rad(self.lat)))
+    (2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))) * 6371.0 #km
+  end
+
   private
   def self.deg_to_rad(deg)
     (deg / 180.0) * Math::PI
@@ -32,12 +40,5 @@ class Business < ActiveRecord::Base
   def self.rad_to_deg(rad)
     (rad * 180.0) / Math::PI
   end
-
-  def self.dist_from(lat, lng, business)
-    dlat = self.deg_to_rad(lat - business.lat)
-    dlon = self.deg_to_rad(lng - business.long)
-    a = ((Math.sin(dlat/2)**2)+(Math.sin(dlon/2)**2)*
-        Math.cos(deg_to_rad(lat))*Math.cos(deg_to_rad(business.lat)))
-    (2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))) * 6371.0 #km
-  end
+ 
 end
