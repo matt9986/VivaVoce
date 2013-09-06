@@ -16,7 +16,8 @@ VivaVoce.Views.BusinessesNew = Backbone.View.extend({
 		var that = this;
 		event.preventDefault();
 		var json = $(event.target).serializeJSON();
-		this.collection.create(json, {
+		that._googleLatLng(json, function(data){
+			that.collection.create(json, {
 				success: function (business) {
 				Backbone.history.navigate('#/businesses/'+business.id);
 			},
@@ -33,7 +34,21 @@ VivaVoce.Views.BusinessesNew = Backbone.View.extend({
 					that.$el.prepend("<p>I don't know what happened</p>");
 				}
 			}
-	});
+		});
+		});
+  },
+
+  _googleLatLng: function (json, callback) {
+		var address = json.business.street_address + ", " + json.business.city + ", ";
+		address = address + json.business.state + ", " + json.business.zip;
+		VivaVoce.Store.geocoder.geocode(
+			{ address: address },
+			function (results) {
+				json.business.lat = results[0].geometry.location.lat();
+				json.business.long = results[0].geometry.location.lng();
+				debugger
+				callback(json);
+			});
   }
 
 });
