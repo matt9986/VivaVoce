@@ -6,6 +6,9 @@ class Business < ActiveRecord::Base
   has_many :reviews
   belongs_to :user
 
+  has_reputation :stars, source: :review, aggregated_by: :average
+  has_reputation :price, source: :user, aggregated_by: :average
+
   before_create :get_lat_long
 
   def get_lat_long
