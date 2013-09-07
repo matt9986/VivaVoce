@@ -48,3 +48,6 @@ gem 'backbone-on-rails'
 
 # Rabl Rabl Rabl
 gem 'rabl'
+
+# Reputation
+gem 'activerecord-reputation-system'
