@@ -1,11 +1,9 @@
 <form class="newReview">
 	<label>Rate:</label>
 	<span class="rating">
-		<input type="radio" name="stars" value= "5">
-		<input type="radio" name="stars" value= "4">
-		<input type="radio" name="stars" value= "3">
-		<input type="radio" name="stars" value= "2">
-		<input type="radio" name="stars" value= "1">
+		<% for(var i = 5; i > 0; i--) { %>
+			<%= "<input type='radio' name='stars' value= " + i + ">" %>
+		<% } %>
 	</span>
 	<br>
 	<label for="review_body">Review:</label>

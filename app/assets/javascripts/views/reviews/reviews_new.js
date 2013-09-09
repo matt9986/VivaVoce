@@ -16,7 +16,7 @@ VivaVoce.Views.ReviewsNew = Backbone.View.extend({
 		event.preventDefault();
 		var json = $(event.target).serializeJSON();
 		this.collection.create(json, {
-				success: function () {
+			success: function () {
 				Backbone.history.navigate('#/businesses/'+that.collection.businessId);
 			},
 			error: function (sent, response) {
