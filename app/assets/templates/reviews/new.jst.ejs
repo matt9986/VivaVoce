@@ -1,9 +1,20 @@
 <form class="newReview">
+	<label>Rate:</label>
+	<span class="rating">
+		<input type="radio" name="stars" value= "5">
+		<input type="radio" name="stars" value= "4">
+		<input type="radio" name="stars" value= "3">
+		<input type="radio" name="stars" value= "2">
+		<input type="radio" name="stars" value= "1">
+	</span>
+	<br>
 	<label for="review_body">Review:</label>
 	<textarea 
 		id="review_body" 
 		name="review[body]"
+		autofocus = "autofocus"
 		placeholder="Tell us how you really feel."
 	></textarea>
+
 	<input type="submit" value="Submit">
 </form>

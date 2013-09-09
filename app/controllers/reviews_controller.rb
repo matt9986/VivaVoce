@@ -3,20 +3,23 @@ class ReviewsController < ApplicationController
 	before_filter :check_auth, only: [:destroy, :update]
 
 	def create
+		errors = []
 		params[:review][:user_id] = current_user.id
 		params[:review][:business_id] = params[:business_id]
 		@business = Business.find(params[:business_id])
 		begin
 			ActiveRecord::Base.transaction do
 				@review = Review.new(params[:review])
-
-				@review.save
 				raise "invalid" unless @review.valid?
-				raise "invalid" unless (1 .. 5).include?(@params[:stars])
-				@business.add_evaluation(:stars, params[:stars], @review)
+				@review.save
+				unless (1 .. 5).include?(params[:stars].to_i)
+					errors << "Stars amount was outside the set range"
+					raise "invalid" 
+				end
+				@business.add_evaluation(:stars, params[:stars].to_i, @review)
 			end
 		rescue
-			render json: @review.errors.full_messages, status: 422
+			render json: @review.errors.full_messages + errors, status: 422
 		else
 			render json: @review
 		end

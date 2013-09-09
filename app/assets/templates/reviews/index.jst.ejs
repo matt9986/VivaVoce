@@ -1,6 +1,7 @@
 <ul>
 	<% reviews.each(function(review){ %>
 		<li>
+			<p>Stars: <%= review.escape("stars") %></p>
 			<p><%= review.escape("body") %></p>
 			<h5><%= review.escape("author_name") %> wrote this at <%= review.escape("updated_at") %></h5>
 		</li>

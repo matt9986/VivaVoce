@@ -2,7 +2,7 @@
 	<h3>
 		<a href="#/businesses/<%= business.id %>">
 			<%= business.escape("name") %>
-		</a>
+		</a> Rates: <%= business.escape("stars") %>
 	</h3>
 	<p><%= business.escape("street_address") %></p>
 	<p><%= business.escape("city") %>, <%= business.escape("state") %> <%= business.escape("zip") %></p>

@@ -23,3 +23,22 @@
 	text-align: center;
 	border-radius: 15px;
 }
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > input:checked:before,
+.rating > input:checked ~ input:before {
+	color: red;
+  content: "\2605";
+  position: absolute;
+  font-weight: bolder;
+}
+.rating > input:hover:before,
+.rating > input:hover ~ input:before {
+  color: red;
+  content: "\2605";
+  position: absolute;
+  font-weight: bolder;
+}
+
