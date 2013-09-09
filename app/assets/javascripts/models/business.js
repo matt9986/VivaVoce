@@ -10,5 +10,17 @@ VivaVoce.Models.Business = Backbone.RelationalModel.extend({
 		reverseRelation: {
 			key: 'business'
 		}
-	}]
+	},
+	{
+		type: Backbone.HasMany,
+		key: 'photos',
+		relatedModel: 'VivaVoce.Models.Photo',
+		collectionType: 'VivaVoce.Collections.Photos',
+		collectionOptions: function (model) {
+			return {businessId: model.id};
+		},
+		reverseRelation: {
+			key: 'business'
+		}
+		}]
 });

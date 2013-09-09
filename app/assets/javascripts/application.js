@@ -17,6 +17,7 @@
 //= require backbone
 //= require backbone-relational
 //= require jquery.serializeJSON
+//= require dropzone
 //= require viva_voce
 //= require_tree ../templates
 //= require_tree ./models
