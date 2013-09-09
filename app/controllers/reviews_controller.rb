@@ -51,6 +51,6 @@ class ReviewsController < ApplicationController
 		value = params[:vote] == "down" ? -1 : 1
 		@review = Review.find(params[:id])
 		@review.add_or_update_evaluation(:votes, value, current_user)
-		render json: {vote: value}, status: 200
+		render :show
 	end
 end
