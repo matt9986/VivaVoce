@@ -1,0 +1,8 @@
+.voteBox {
+	display: block;
+	float: left;
+	width: 30px;
+}
+.reviewListing > li {
+	display: block;
+}

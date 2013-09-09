@@ -1,8 +1,12 @@
-<ul>
+<ul class="reviewListing">
 	<% reviews.each(function(review){ %>
 		<li>
 			<div class="voteBox">
-				<a href="/reviews/<%= review.id %>/vote" data-id="up">&#8657</a><%= review.escape("votes") %><a href="/reviews/<%= review.id %>/vote" data-id="down">&#8659</a>
+				<a href="/reviews/<%= review.id %>/vote" data-id="up">&#8657</a>
+				<br>
+				<%= review.escape("votes") %>
+				<br>
+				<a href="/reviews/<%= review.id %>/vote" data-id="down">&#8659</a>
 			</div>
 			<p>Stars: <%= review.escape("stars") %></p>
 			<p><%= review.escape("body") %></p>

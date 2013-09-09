@@ -16,12 +16,16 @@ VivaVoce.Views.ReviewsIndex = Backbone.View.extend({
   },
 
   placeVote: function () {
-		event.preventDefault();		
+		event.preventDefault();
+		var that = this;
+		var direction = $(event.target).attr("data-id");
+		// TODO update review when vote is confirmed
 		$.ajax({
-			url: "/businesses" + this.collection.businessId + $(event.target).attr("href"),
+			url: "/businesses" + that.collection.businessId + $(event.target).attr("href"),
 			method: "POST",
-			data: {vote: $(event.target).attr("data-id")},
+			data: {vote: direction},
 			success: function () {
+				// Surprise!
 				Backbone.history.navigate('#/businesses/'+that.collection.businessId);
 			},
 			error: function (sent, response) {
