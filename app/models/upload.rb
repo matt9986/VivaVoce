@@ -1,10 +1,10 @@
 class Upload < ActiveRecord::Base
   attr_accessible :business_id, :title, :user_id
-  has_attatched_file :photo, styles: {}
+  has_attached_file :photo, styles: {}
 
-  validates_attatchment :photo,
+  validates_attachment :photo,
                         presence: true,
-                        content_type: { content_type: "image/*" },
+                        content_type: { content_type: /image/ },
                         size: { in: 0..4.megabytes }
   validates :business_id, :user_id, presence: true
   

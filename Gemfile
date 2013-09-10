@@ -54,3 +54,6 @@ gem 'paperclip', "~> 3.0"
 
 #To keep the secret keys
 gem 'figaro'
+
+#To the cloud!
+gem 'aws-sdk'

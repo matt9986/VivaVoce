@@ -22,6 +22,7 @@ window.VivaVoce = {
   },
 
   startStore: function () {
+    this.Store.CSRF = $("meta[name='csrf-token']").attr('content');
     this.Store.session = new this.Models.Session();
     this.Store.session.fetch();
     this.Store.geocoder = new google.maps.Geocoder();

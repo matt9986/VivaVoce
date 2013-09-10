@@ -5,6 +5,7 @@ class Business < ActiveRecord::Base
 
   has_many :reviews
   belongs_to :user
+  has_many :uploads
 
   has_reputation :stars, source: :review, aggregated_by: :average
   has_reputation :price, source: :user, aggregated_by: :average
