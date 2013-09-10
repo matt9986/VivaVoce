@@ -3,6 +3,7 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 		"":"index",
 		"businesses/new":"newBusiness",
 		"businesses/:id/reviews/new":"newReview",
+		"businesses/:id/photos/new":"newPhoto",
 		"businesses/:id":"show",
 		"users/new":"newUser",
 		"searchresults/*terms":"search"
@@ -21,6 +22,13 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 
 	newBusiness: function () {
 		var view = new VivaVoce.Views.BusinessesNew({collection: this.collection});
+		this._swapView(view);
+	},
+
+	newPhoto: function (business_id) {
+		var model = this.collection.get(business_id);
+		var collection = model.get("photos");
+		var view = new VivaVoce.Views.PhotosNew({collection: collection})
 		this._swapView(view);
 	},
 

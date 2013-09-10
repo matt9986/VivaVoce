@@ -28,7 +28,7 @@ VivaVoce.Views.ReviewsShow = Backbone.View.extend({
 			success: function (response) {
 				that.model.set(response);
 			},
-			error: function (sent, response) {
+			error: function (response) {
 				if (response.status == 401){
 					var view = new VivaVoce.Views.SessionCreate({parentView: that});
 					view.render();

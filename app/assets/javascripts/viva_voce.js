@@ -29,6 +29,7 @@ window.VivaVoce = {
   }
 };
 
+Dropzone.autoDiscover = false;
 $(document).ready(function () {
   VivaVoce.initialize();
 });
