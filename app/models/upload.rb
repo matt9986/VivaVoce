@@ -5,7 +5,8 @@ class Upload < ActiveRecord::Base
   validates_attachment :photo,
                         presence: true,
                         content_type: { content_type: /image/ },
-                        size: { in: 0..4.megabytes }
+                        size: { in: 0..4.megabytes },
+                        style: { tiny: "12x12#", thumb: "25x25#" }
   validates :business_id, :user_id, presence: true
   
   belongs_to :user
