@@ -11,10 +11,6 @@ class Business < ActiveRecord::Base
 
   before_create :get_lat_long
 
-  def get_lat_long
-# make the user incl lat/lng in submission of new business
-  end
-
   def self.find_near_coord(lat, lng, dist = 40.2) # 25 mile "radius"
     lat, lng = self.deg_to_rad( lat ), self.deg_to_rad( lng )
     r = dist / 6371.0 #Dist is in km
@@ -30,9 +26,13 @@ class Business < ActiveRecord::Base
   def dist_from(lat, lng)
     dlat = self.class.deg_to_rad(lat - self.lat)
     dlon = self.class.deg_to_rad(lng - self.long)
-    a = ((Math.sin(dlat/2)**2)+(Math.sin(dlon/2)**2)*
-        Math.cos(deg_to_rad(lat))*Math.cos(deg_to_rad(self.lat)))
+    a = ((Math.sin(dlat/2)**2)+(Math.sin(dlon/2)**2) *
+          Math.cos(self.class.deg_to_rad(lat)) * Math.cos(self.class.deg_to_rad(self.lat)))
     (2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))) * 6371.0 #km
+  end
+
+  def get_lat_long
+# make the user incl lat/lng in submission of new business
   end
 
   private

@@ -11,8 +11,8 @@ class BusinessesController < ApplicationController
 					(business.categories & search.tags.split(" ")).lenght > 0
 				end
 			end
-			@businesses.sort_by!{|business| business.distance_from(search[:lat].to_f,
-																														search[:lng].to_f)}
+			@businesses.sort_by!{|business| business.dist_from(search[:lat].to_f,
+																								  				search[:lng].to_f)}
 		else
 			@businesses = Business.all
 		end

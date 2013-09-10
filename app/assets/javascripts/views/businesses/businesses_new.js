@@ -21,7 +21,7 @@ VivaVoce.Views.BusinessesNew = Backbone.View.extend({
 				success: function (business) {
 				Backbone.history.navigate('#/businesses/'+business.id);
 			},
-			error: function (sent, response) {
+			error: function (status, response) {
 				if (response.status == 401){
 					var view = new VivaVoce.Views.SessionCreate({parentView: that});
 					view.render();

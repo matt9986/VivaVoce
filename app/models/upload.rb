@@ -7,4 +7,7 @@ class Upload < ActiveRecord::Base
                         content_type: { content_type: "image/*" },
                         size: { in: 0..4.megabytes }
   validates :business_id, :user_id, presence: true
+  
+  belongs_to :user
+  belongs_to :business
 end
