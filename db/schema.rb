@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907000165) do
+ActiveRecord::Schema.define(:version => 20130910001852) do
 
   create_table "businesses", :force => true do |t|
     t.integer  "user_id"
@@ -84,6 +84,18 @@ ActiveRecord::Schema.define(:version => 20130907000165) do
   add_index "rs_reputations", ["reputation_name", "target_id", "target_type"], :name => "index_rs_reputations_on_reputation_name_and_target", :unique => true
   add_index "rs_reputations", ["reputation_name"], :name => "index_rs_reputations_on_reputation_name"
   add_index "rs_reputations", ["target_id", "target_type"], :name => "index_rs_reputations_on_target_id_and_target_type"
+
+  create_table "uploads", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "business_id"
+    t.string   "title"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

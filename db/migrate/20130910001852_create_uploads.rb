@@ -4,7 +4,7 @@ class CreateUploads < ActiveRecord::Migration
       t.integer :user_id
       t.integer :business_id
       t.string :title
-      t.attatchment :photo
+      t.attachment :photo
 
       t.timestamps
     end

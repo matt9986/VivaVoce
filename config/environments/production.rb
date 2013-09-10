@@ -69,8 +69,8 @@ VivaVoce::Application.configure do
         :storage => :s3,
         :s3_credentials => {
           :bucket => "photos.vivavoce",
-          :access_key_id => AWS_ACCESS_KEY_ID,
-          :secret_access_key => AWS_SECRET_ACCESS_KEY
+          :access_key_id => ENV["AWS_ACCESS_KEY_ID"],
+          :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"]
         }
       }
 end
