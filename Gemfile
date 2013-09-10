@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 group :production do
 	gem 'mysql2'
 end
@@ -51,3 +48,9 @@ gem 'rabl'
 
 # Reputation
 gem 'activerecord-reputation-system'
+
+# Pics and files!
+gem 'paperclip', "~> 3.0"
+
+#To keep the secret keys
+gem 'figaro'

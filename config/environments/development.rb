@@ -34,4 +34,13 @@ VivaVoce::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "photos.devvoce",
+      :access_key_id => 123,
+      :secret_access_key => 123
+    }
+  }
 end
