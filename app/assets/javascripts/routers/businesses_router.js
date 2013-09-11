@@ -4,6 +4,7 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 		"businesses/new":"newBusiness",
 		"businesses/:id/reviews/new":"newReview",
 		"businesses/:id/photos/new":"newPhoto",
+    "businesses/:id/photos":"photoIndex",
 		"businesses/:id":"show",
 		"users/new":"newUser",
 		"searchresults/*terms":"search"
@@ -43,6 +44,13 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 		var view = new VivaVoce.Views.UsersNew();
 		this._swapView(view);
 	},
+  
+  photoIndex: function (busId) {
+    var that = this;
+    model = that.collection.get(busId)
+    var view = new VivaVoce.Views.PhotosIndex({ collection: model.get('photos') });
+    model.get('photos').fetch({success: function () {that._swapView(view)}});
+  },
 
 	search: function (terms) {
 		var that = this;

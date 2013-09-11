@@ -1,8 +1,6 @@
 VivaVoce.Views.PhotosCaptionForm = Backbone.View.extend({
 
   template: JST['photos/caption_form'],
-  
-
 
   events:{
 		"submit form.newCaption":"save"

@@ -1,0 +1,11 @@
+<table>
+  <% photos.each(function (photo, index) { %>
+    <% if ( index % 3 === 0 ) { %>
+      <tr>
+    <% }; %>
+    <td><img src='<%= photo.escape('thumbUrl') %>'></td>
+    <% if ( (index + 1) % 3 === 0 ) { %>
+      </tr>
+    <% }; %>
+  <% }); %>
+</table>

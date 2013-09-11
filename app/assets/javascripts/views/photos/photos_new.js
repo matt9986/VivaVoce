@@ -39,6 +39,13 @@ VivaVoce.Views.PhotosNew = Backbone.View.extend({
 		this.$el.append("<br><a href='#/businesses/" +
 											that.collection.businessId + "'>Cancel Upload</a>")
 		return this;
+  },
+  
+  remove: function(){
+		this.$el.remove();
+		_.each(this.views, function(view){ view.remove(); });
+		this.stopListening();
+		return this;
   }
 
 });
