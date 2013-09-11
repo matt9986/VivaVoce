@@ -52,8 +52,11 @@ gem 'activerecord-reputation-system'
 # Pics and files!
 gem 'paperclip', "~> 3.0"
 
-#To keep the secret keys
+# Pages!
+gem 'kaminari'
+
+# To keep the secret keys
 gem 'figaro'
 
-#To the cloud!
+# To the cloud!
 gem 'aws-sdk'

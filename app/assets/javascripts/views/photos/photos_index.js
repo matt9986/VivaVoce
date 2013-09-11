@@ -3,11 +3,19 @@ VivaVoce.Views.PhotosIndex = Backbone.View.extend({
   template: JST['photos/index'],
   
   events: {
-    "click div.photoBox>a":"popPhoto"
+    "click div.photoBox>a":"popPhoto",
+    "click a":"changePage"
   },
   
   initialize: function () {
     this.listenTo(this.collection, "add reset remove", this.render);
+  },
+  
+  changePage: function () {
+    event.preventDefault();
+    var dir = parseInt($(event.target).attr('data-id'))
+    this.collection.page = this.collection.page + dir;
+    this.collection.fetch({ data: { page: this.collection.page }, reset: true });
   },
   
   popPhoto: function () {

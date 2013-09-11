@@ -22,9 +22,9 @@ class PhotosController < ApplicationController
     end
   end
   
-  def index #Write this view
+  def index
     @bus = Business.find(params[:business_id])
-    @uploads = @bus.uploads
+    @uploads = @bus.uploads.page(params[:page]).per(12).includes(:user)
     render :index
   end
   

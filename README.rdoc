@@ -7,10 +7,9 @@ of this Yelp clone. Features:
 * Google Geocoder integration
 * JQueryUI
 * Photo uploads using Paperclip to an AWS S3 server
-
+* Data bootstrapped on initial load
 
 == TODO:
-* Bootstrap data
 * Add search route
 * Catch server-side n+1 sql queries
 * Update record pages
