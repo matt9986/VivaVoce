@@ -1,0 +1,10 @@
+<form class='newCaption'>
+  <img src='<%= photo.get("url") %>'>
+  <br>
+  <textarea
+    name="photo[title]"
+    id="photo_title"
+    placeholder="Enter a title here"
+    ><%= photo.escape('title') %></textarea>
+  <input type="submit" value="Add title">
+</form>

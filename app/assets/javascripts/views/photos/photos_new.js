@@ -2,25 +2,23 @@ VivaVoce.Views.PhotosNew = Backbone.View.extend({
 
   // template: JST['photos/new'],
 
-	className:"newPhotos dropzone",
+	className:"newPhotos dropzone dropzone-previews",
   
 	initialize: function () {
 		this.views = [];
 	},
   
-  photoFail: function (file, response) {
-    _.each(response, function (error) {
-      this.$el.append(error)
-    })
+  photoFail: function (file, msg, response) {
+    this.$el.append(response.response)
   },
 
 	photoSuccess: function (file, response) {
 		this.collection.add(response)
 		var view = new VivaVoce.Views.PhotosCaptionForm({
 			collection: this.collection,
-			model: response
+			model: this.collection.get(response.id)
 		});
-		this.$el.append(view.render());
+		this.$el.append(view.render().$el);
 		this.views.push(view);
 	},
 
@@ -32,11 +30,10 @@ VivaVoce.Views.PhotosNew = Backbone.View.extend({
 			maxFiles: 5,
 			acceptedFiles: "image/*",
 			dictDefaultMessage: "Click or drag your files here to upload",
-			addRemoveLinks: true,
       headers: { 'X-CSRF-Token': VivaVoce.Store.CSRF },
 			init: function () {
-				this.on("success", that.photoSuccess);
-        this.on("error", that.photoFail);
+				this.on("success", that.photoSuccess.bind(that));
+        this.on("error", that.photoFail.bind(that));
 			}
 		});
 		this.$el.append("<br><a href='#/businesses/" +
