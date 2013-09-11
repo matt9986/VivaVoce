@@ -1,4 +1,6 @@
 .header {
+  -webkit-box-shadow: 0 0 5px rgba(78, 2, 2, .76);
+  box-shadow: 0 0 5px rgba(78, 2, 2, .76);
 	display: inline-block;
 	text-align: center;
 	width: 100%;

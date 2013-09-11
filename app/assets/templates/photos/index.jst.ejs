@@ -1,11 +1,11 @@
-<table>
   <% photos.each(function (photo, index) { %>
-    <% if ( index % 3 === 0 ) { %>
-      <tr>
-    <% }; %>
-    <td><img src='<%= photo.escape('thumbUrl') %>'></td>
-    <% if ( (index + 1) % 3 === 0 ) { %>
-      </tr>
-    <% }; %>
+    <div class='photoBox'><a
+                            href='#/businesses/<%= photos.businessId %>/photos/<%= photo.id %>'
+                            data-id='<%= photo.id %>'
+                            ><img 
+                              title='<%= photo.escape("title") %> By: <%= photo.escape("author") %>'
+                              data-id='<%= photo.id %>'
+                              src='<%= photo.escape('thumbUrl')%>'></a></div>
   <% }); %>
-</table>
+<br>
+<a href="#/businesses/<%= photos.businessId %>/photos/new">Add photos!</a>

@@ -1,0 +1,7 @@
+<span class='photoShowBox'>
+  <h4><%= photo.escape("title") %></h4>
+  <img src='<%= photo.get("url") %>'>
+  <h6>By: <%= photo.escape("author") %> </h6>
+  <br>
+  <a id="next" href="#/nextPhoto">Next</a>
+</span>

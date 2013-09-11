@@ -1,13 +1,19 @@
 <h2><%= business.escape('name') %></h2>
-<a href="#/businesses/<%= business.id %>/photos">View photos!</a>
-<a href="#/businesses/<%= business.id %>/photos/new">Add photos!</a>
 <p><%= business.escape('street_address') %></p>
 <p>
 	<%= business.escape('city') %>, <%= business.escape('sate') %> <%= business.escape('zip') %>
 </p>
 
-<h3>Reviews</h3>
-<div class="review_table"></div>
+<div class='tabular'>
+  <ul>
+    <li><a href="#reviewsTab">Reviews</a></li>
+    <li><a href="#photosTab">Photos</a></li>
+  </ul>
+  
+  <div id="reviewsTab" class="review_table"></div>
+  <div id="photosTab" class="photo_table"></div>
+  
+</div>
 
 <a href="#/businesses/<%= business.id %>/reviews/new">
 	Write a review!

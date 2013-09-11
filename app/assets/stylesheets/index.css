@@ -6,3 +6,6 @@
 .reviewListing > li {
 	display: block;
 }
+.photoBox {
+  display: inline-block;
+}

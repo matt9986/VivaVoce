@@ -1,0 +1,12 @@
+.photoShowBox {
+  background-color: green;
+  width:      600px;
+	z-index:    10;
+	top:        20%;
+	left:       50%;
+	margin-left: -300px;
+	z-index:    10;  
+	position:   fixed;
+	text-align: center;
+  border-radius: 15px;
+}
