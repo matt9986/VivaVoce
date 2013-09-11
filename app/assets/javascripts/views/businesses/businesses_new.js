@@ -18,6 +18,7 @@ VivaVoce.Views.BusinessesNew = Backbone.View.extend({
 		var json = $(event.target).serializeJSON();
 		that._googleLatLng(json, function(data){
 			that.collection.create(json, {
+        wait: true,
 				success: function (business) {
 				Backbone.history.navigate('#/businesses/'+business.id);
 			},

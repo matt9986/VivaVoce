@@ -2,7 +2,8 @@
 	<label>Rate:</label>
 	<span class="rating">
 		<% for(var i = 5; i > 0; i--) { %>
-			<%= "<input type='radio' name='stars' value= " + i + ">" %>
+      <% var check = (parseInt(review.get('stars')) === i ? " checked='checked'" : null); %>
+			<%= "<input type='radio' name='stars' value= " + i + check + ">" %>
 		<% } %>
 	</span>
 	<br>
@@ -12,7 +13,8 @@
 		name="review[body]"
 		autofocus = "autofocus"
 		placeholder="Tell us how you really feel."
-	></textarea>
+	><%= review.escape('body') %></textarea>
 
 	<input type="submit" value="Submit">
 </form>
+<a href='/#/businesses/<%= review.get('collection').businessId %>'>Cancel Review</a>

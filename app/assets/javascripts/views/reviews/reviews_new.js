@@ -7,7 +7,9 @@ VivaVoce.Views.ReviewsNew = Backbone.View.extend({
   },
 
 	render: function () {
-		this.$el.html(this.template());
+    this.$el.html(this.template({
+      review: new VivaVoce.Models.Review({ collection: this.collection })
+    }));
 		return this;
   },
 
@@ -16,6 +18,7 @@ VivaVoce.Views.ReviewsNew = Backbone.View.extend({
 		event.preventDefault();
 		var json = $(event.target).serializeJSON();
 		this.collection.create(json, {
+      wait: true,
 			success: function () {
 				Backbone.history.navigate('#/businesses/'+that.collection.businessId);
 			},
