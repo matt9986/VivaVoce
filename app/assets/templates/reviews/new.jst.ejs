@@ -1,4 +1,4 @@
-<form class="newReview">
+<form class="newReview showBox">
 	<label>Rate:</label>
 	<span class="rating">
 		<% for(var i = 5; i > 0; i--) { %>
@@ -12,10 +12,10 @@
 		id="review_body" 
 		name="review[body]"
     required
-		autofocus = "autofocus"
+		autofocus
 		placeholder="Tell us how you really feel."
 	><%= review.escape('body') %></textarea>
 
 	<input type="submit" value="Submit">
 </form>
-<a href='/#/businesses/<%= review.get('collection').businessId %>'>Cancel Review</a>
+<a href='/#/businesses/<%= review.collection.businessId %>'>Cancel Review</a>

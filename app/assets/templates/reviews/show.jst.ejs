@@ -5,6 +5,11 @@
 	<br>
 	<a href="/reviews/<%= review.id %>/vote" data-id="down">&#8659</a>
 </div>
+<% if(VivaVoce.Store.session.get('username') == review.get('author_name')) { %>
+  <div class='editBox'>
+    <a class='edit' href="#edit">Edit</a>  <a class='del' href="#delete">Delete</a>
+  </div>
+<%}%>
 <p>Stars: <%= review.escape("stars") %></p>
 <p><%= review.escape("body") %></p>
 <h5><%= review.escape("author_name") %> wrote this at <%= review.escape("updated_at") %></h5>

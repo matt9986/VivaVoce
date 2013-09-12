@@ -9,14 +9,15 @@ of this Yelp clone. Features:
 * JQueryUI
 * Photo uploads using Paperclip to an AWS S3 server
 * Data safely bootstrapped on initial load
-* Pagination on photos and businesses
+* Pagination on photos, reviews and businesses
+* Google map integration
 
 == TODO:
+* Add dependencies to related models (And rep)
 * Add search route (and pagination)
 * Catch server-side n+1 sql queries
 * Update business/review/photo pages
 * Clean controllers
-* Google Map
 * OmniAuth -- Facebook
 * Categories!
 * Integrate category search box

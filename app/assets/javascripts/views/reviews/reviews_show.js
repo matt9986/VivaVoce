@@ -5,16 +5,25 @@ VivaVoce.Views.ReviewsShow = Backbone.View.extend({
   tagName: "li",
 
   events: {
-		"click .voteBox > a": "placeVote"
+		"click .voteBox > a": "placeVote",
+    "click a.edit":"popEdit",
+    "click a.del":"deleteRecord"
   },
 
   initialize: function () {
 		this.listenTo(this.model, "change", this.render);
   },
+  
+  deleteRecord: function () {
+    event.preventDefault();
+    this.model.destroy();
+    this.remove();
+  },
 
-	render: function () {
-		this.$el.html(this.template({review: this.model}));
-		return this;
+  popEdit: function () {
+    event.preventDefault();
+    var editView = new VivaVoce.Views.ReviewsEdit({model: this.model});
+    this.$el.prepend(editView.render().$el);
   },
 
   placeVote: function () {
@@ -38,6 +47,11 @@ VivaVoce.Views.ReviewsShow = Backbone.View.extend({
 				}
 			}
 		});
+  },
+                                                  
+  render: function () {
+		this.$el.html(this.template({review: this.model}));
+		return this;
   }
 
 });

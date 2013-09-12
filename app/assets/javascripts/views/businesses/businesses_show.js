@@ -33,7 +33,7 @@ VivaVoce.Views.BusinessesShow = Backbone.View.extend({
   _addMap: function () {
     var mapOpts = {
       center: new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')),
-      zoom: 16
+      zoom: 14
     };
     var map = new google.maps.Map(this.$el.find('.smallMap').get(0), mapOpts);
     new google.maps.Marker({

@@ -37,7 +37,12 @@ class ReviewsController < ApplicationController
 	end
 
 	def update
-
+    @review = Review.find(params[:id])
+    if @review.update_attributes(params[:review])
+      render :show
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
 	end
 
 	def check_auth
