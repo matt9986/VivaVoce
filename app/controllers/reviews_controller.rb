@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
 
 	def index
 		@business = Business.find(params[:business_id])
-		@reviews = @business.reviews.includes(:user)
+    @reviews = @business.reviews.reverse_order.page(params[:page]).per(15).includes(:user)
 	end
 
 	def update

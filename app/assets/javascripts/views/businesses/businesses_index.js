@@ -3,7 +3,7 @@ VivaVoce.Views.BusinessesIndex = Backbone.View.extend({
   template: JST['businesses/index'],
   
   events:{
-    "click li>a":"changePage"
+    "click li>page":"changePage"
   },
 
   initialize: function () {

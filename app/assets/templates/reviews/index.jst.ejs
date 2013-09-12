@@ -13,4 +13,15 @@
 			<h5><%= review.escape("author_name") %> wrote this at <%= review.escape("updated_at") %></h5>
 		</li>
 	<% }) %>
+  <li>
+  <% if(reviews.page > 1){ %>
+    <a data-id='-1' 
+      class="page" 
+      href='#prior'>Previous</a><% }; %>
+  Page: <%= reviews.page %>
+  <% if(reviews.length === 15){ %>
+    <a class="page" 
+      data-id='1'
+      href='#next'>More</a><% }; %>
+  </li>
 </ul>
