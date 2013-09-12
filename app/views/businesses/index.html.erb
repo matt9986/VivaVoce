@@ -1,6 +1,6 @@
 <script type="text/json" id="bootstrap">
   { "businesses": <%= render "index.rabl" %>,
-    <% session = (logged_in? ? "{\"username\":\"#{ current_user.username }\" }" : nil) %>
+    <% session = (logged_in? ? "{\"username\":\"#{ current_user.username }\" }" : "null") %>
     "session": <%= session %>
     }
 </script>
