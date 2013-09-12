@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
 			@businesses.sort_by!{|business| business.dist_from(search[:lat].to_f,
 																								  				search[:lng].to_f)}
 		else
-			@businesses = Business.all
+      @businesses = Business.page(params[:page]).per(10)
 		end
 		respond_to do |format|
 			format.html {render :index}

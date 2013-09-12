@@ -5,17 +5,19 @@ of this Yelp clone. Features:
 * Rails API backend
 * BackboneJS frontend
 * Google Geocoder integration
+* Business search by area
 * JQueryUI
 * Photo uploads using Paperclip to an AWS S3 server
-* Data bootstrapped on initial load
+* Data safely bootstrapped on initial load
+* Pagination on photos and businesses
 
 == TODO:
-* Add search route
+* Add search route (and pagination)
 * Catch server-side n+1 sql queries
 * Update record pages
 * Clean controllers
 * Google Map
-* Pagination with Kaminari
 * OmniAuth -- Facebook
+* Categories!
 * Integrate category search box
 * Rename backbone router

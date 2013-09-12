@@ -4,6 +4,7 @@ VivaVoce.Collections.Reviews = Backbone.Collection.extend({
 
   initialize: function(n, options){
 		this.businessId = options.businessId;
+    this.page = 1;
   },
 
   url: function() {
