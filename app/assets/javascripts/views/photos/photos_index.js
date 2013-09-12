@@ -4,7 +4,7 @@ VivaVoce.Views.PhotosIndex = Backbone.View.extend({
   
   events: {
     "click div.photoBox>a":"popPhoto",
-    "click a":"changePage"
+    "click a.page":"changePage"
   },
   
   initialize: function () {

@@ -3,7 +3,7 @@ VivaVoce.Views.BusinessesIndex = Backbone.View.extend({
   template: JST['businesses/index'],
   
   events:{
-    "click li>page":"changePage"
+    "click li>a.page":"changePage"
   },
 
   initialize: function () {
@@ -19,7 +19,24 @@ VivaVoce.Views.BusinessesIndex = Backbone.View.extend({
 
 	render: function () {
 		this.$el.html(this.template({businesses: this.collection}));
+    this._addMap();
 		return this;
+  },
+  
+  _addMap: function () {
+    var mapOpts = {
+      center: new google.maps.LatLng(37.755422, -122.350616),
+      zoom: 11
+    };
+    var map = new google.maps.Map(this.$el.find('.mapSpace').get(0), mapOpts)
+    this.collection.each(function(business){
+      new google.maps.Marker({
+        map: map,
+        position: new google.maps.LatLng(business.get('lat'), business.get('lng')),
+        title: business.get('name')
+      });
+    })
   }
+                    
 
 });

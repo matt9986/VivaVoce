@@ -9,6 +9,6 @@ VivaVoce.Collections.Photos = Backbone.Collection.extend({
 
   url: function() {
 		return "/businesses/"+this.businessId+"/photos";
-}
+  }
 
 });

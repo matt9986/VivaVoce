@@ -14,7 +14,7 @@ of this Yelp clone. Features:
 == TODO:
 * Add search route (and pagination)
 * Catch server-side n+1 sql queries
-* Update record pages
+* Update business/review/photo pages
 * Clean controllers
 * Google Map
 * OmniAuth -- Facebook

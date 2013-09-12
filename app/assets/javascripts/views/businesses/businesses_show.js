@@ -18,7 +18,8 @@ VivaVoce.Views.BusinessesShow = Backbone.View.extend({
     _.each(this.views, function(view){ view.render() });
 		this.$el.find(".review_table").html(reviewsView.$el);
 		this.$el.find(".photo_table").html(photosView.$el);
-    this.$el.find(".tabular").tabs({ collapsible: true, hide: 300, show: 300 })
+    this.$el.find(".tabular").tabs({ collapsible: true, hide: 300, show: 300 });
+    this._addMap();
 		return this;
   },
 
@@ -27,6 +28,19 @@ VivaVoce.Views.BusinessesShow = Backbone.View.extend({
 		_.each(this.views, function(view){ view.remove(); });
 		this.stopListening();
 		return this;
+  },
+  
+  _addMap: function () {
+    var mapOpts = {
+      center: new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')),
+      zoom: 16
+    };
+    var map = new google.maps.Map(this.$el.find('.smallMap').get(0), mapOpts);
+    new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')),
+      title: this.model.get('name')
+    });
   }
 
 });

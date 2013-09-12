@@ -9,3 +9,16 @@
 .photoBox {
   display: inline-block;
 }
+.mapSpace {
+  float: right;
+  width: 600px;
+  height: 600px;
+}
+.smallMap {
+  float: right;
+  width: 200px;
+  height: 200px;
+}
+.tabular {
+  clear: both;
+}
