@@ -31,13 +31,15 @@ VivaVoce.Views.BusinessesShow = Backbone.View.extend({
   },
   
   _addMap: function () {
+    var that = this;
+    that.center = new google.maps.LatLng(this.model.get('lat'), this.model.get('lng'))
     var mapOpts = {
-      center: new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')),
-      zoom: 14
+      center: that.center,
+      zoom: 12
     };
-    var map = new google.maps.Map(this.$el.find('.smallMap').get(0), mapOpts);
+    that.map = new google.maps.Map(this.$el.find('.smallMap').get(0), mapOpts);
     new google.maps.Marker({
-      map: map,
+      map: that.map,
       position: new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')),
       title: this.model.get('name')
     });

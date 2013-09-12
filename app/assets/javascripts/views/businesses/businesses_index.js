@@ -24,14 +24,16 @@ VivaVoce.Views.BusinessesIndex = Backbone.View.extend({
   },
   
   _addMap: function () {
+    var that = this;
+    that.center = new google.maps.LatLng(37.755422, -122.350616);
     var mapOpts = {
-      center: new google.maps.LatLng(37.755422, -122.350616),
+      center: that.center,
       zoom: 11
     };
-    var map = new google.maps.Map(this.$el.find('.mapSpace').get(0), mapOpts)
+    that.map = new google.maps.Map(this.$el.find('.mapSpace').get(0), mapOpts)
     this.collection.each(function(business){
       new google.maps.Marker({
-        map: map,
+        map: that.map,
         position: new google.maps.LatLng(business.get('lat'), business.get('lng')),
         title: business.get('name')
       });

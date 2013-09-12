@@ -19,6 +19,8 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 	index: function () {
 		var view = new VivaVoce.Views.BusinessesIndex({collection: this.collection});
 		this._swapView(view);
+    google.maps.event.trigger(view.map, "resize");
+    view.map.setCenter(view.center);
 	},
 
 	newBusiness: function () {
@@ -76,6 +78,8 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
 		model.get("reviews").fetch({reset: true});
     model.get("photos").fetch({reset: true})
 		this._swapView(view);
+    google.maps.event.trigger(view.map, "resize");
+    view.map.setCenter(view.center);
 	},
 
 

@@ -25,6 +25,7 @@ window.VivaVoce = {
 };
 
 Dropzone.autoDiscover = false;
+google.maps.visualRefresh = true;
 $(document).ready(function () {
   var $div = $('<div></div>');
   $div.html($('#bootstrap').text());
