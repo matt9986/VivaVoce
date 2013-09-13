@@ -64,12 +64,16 @@ VivaVoce.Routers.Businesses = Backbone.Router.extend({
         searchresults.fetch({data: data, success: function () {
           view.render();
           that._swapView(view);
+          google.maps.event.trigger(view.map, "resize");
+          view.map.setCenter(view.center);
          }});
       });
     }else{
       searchresults.fetch({data: data, success: function () {
         view.render();
         that._swapView(view);
+        google.maps.event.trigger(view.map, "resize");
+        view.map.setCenter(view.center);
       }});
     }
 	},
