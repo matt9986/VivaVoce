@@ -10,7 +10,6 @@ of this Yelp clone. Features:
 * Photo uploads using Paperclip to an AWS S3 server
 * Data safely bootstrapped on initial load
 * Pagination on photos, reviews and businesses
-* Name and nearby locatioin search
 
 == TODO:
 * Add search route (and pagination)
