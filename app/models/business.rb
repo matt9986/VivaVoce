@@ -11,6 +11,17 @@ class Business < ActiveRecord::Base
   has_reputation :price, source: :user, aggregated_by: :average
 
   before_create :get_lat_long
+  
+  def self.name_or_loc_search(query)
+    if query[:lat] && query[:lng]
+      businesses = self.find_near_coord(query[:lat].to_f, query[:lng].to_f)
+    end
+    if query[:name]
+      businesses ||= self
+      businesses = businesses.find(:all, :conditions => ['name LIKE ?', "%#{query[:name]}%"])
+    end
+    return businesses
+  end
 
   def self.find_near_coord(lat, lng, dist = 40.2) # 25 mile "radius"
     lat, lng = self.deg_to_rad( lat ), self.deg_to_rad( lng )

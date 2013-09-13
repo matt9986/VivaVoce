@@ -17,10 +17,6 @@ VivaVoce.Views.VivaVoceHeader = Backbone.View.extend({
 		view.render();
     // Commented so that header could over-write page and hide bootstrapped data
 		//this._add_google_complete(this.$el.find("#business_loc"));
-		// Autocomplete for categories too
-		this.$el.find("#business_tags").autocomplete({
-			source: VivaVoce.Store.categories
-		});
 		
 		this.$el.append(view.$el);
 		return this;

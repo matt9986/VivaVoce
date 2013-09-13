@@ -20,12 +20,10 @@ window.VivaVoce = {
     this.Store.CSRF = $("meta[name='csrf-token']").attr('content');
     this.Store.session = new this.Models.Session(strapped.session);
     this.Store.geocoder = new google.maps.Geocoder();
-    this.Store.categories = ["Categories"];
   }
 };
 
 Dropzone.autoDiscover = false;
-google.maps.visualRefresh = true;
 $(document).ready(function () {
   var $div = $('<div></div>');
   $div.html($('#bootstrap').text());

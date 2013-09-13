@@ -3,16 +3,11 @@ class BusinessesController < ApplicationController
 
 	def index
 		if search = params[:business]
-			@businesses = Business.find_near_coord(search[:lat].to_f,
-																						 search[:lng].to_f)
-			unless search[:tags].empty?
-				puts "it thought there were tags"
-				@businesses.select! do |business|
-					(business.categories & search.tags.split(" ")).length > 0
-				end
-			end
-			@businesses.sort_by!{|business| business.dist_from(search[:lat].to_f,
-																								  				search[:lng].to_f)}
+      @businesses = Business.name_or_loc_search(search)
+      if search[:lat] && search[:lng]
+  			@businesses.sort_by!{|business| business.dist_from(search[:lat].to_f,
+                                                           search[:lng].to_f)}
+      end
 		else
       @businesses = Business.page(params[:page]).per(10)
 		end

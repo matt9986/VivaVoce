@@ -4,13 +4,13 @@ Translating to something along the lines of "word of mouth" from Latin, "Viva Vo
 of this Yelp clone. Features:
 * Rails API backend
 * BackboneJS frontend
-* Google Geocoder integration
+* Google Map and Geocoder integration
 * Business search by area
 * JQueryUI
 * Photo uploads using Paperclip to an AWS S3 server
 * Data safely bootstrapped on initial load
 * Pagination on photos, reviews and businesses
-* Google map integration
+* Name and nearby locatioin search
 
 == TODO:
 * Add search route (and pagination)
@@ -18,8 +18,7 @@ of this Yelp clone. Features:
 * Update business/review/photo pages
 * Clean controllers
 * OmniAuth -- Facebook
-* Categories!
+* Categories!/Names?
 * Integrate category search box
 * Rename backbone router
-* Stars? (Progress bar!)
 * Redis chaching
