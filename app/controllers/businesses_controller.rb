@@ -8,6 +8,7 @@ class BusinessesController < ApplicationController
   			@businesses.sort_by!{|business| business.dist_from(search[:lat].to_f,
                                                            search[:lng].to_f)}
       end
+      Kaminari.paginate_array(@businesses).page(params[:page]).per(10)
 		else
       @businesses = Business.page(params[:page]).per(10)
 		end
@@ -25,9 +26,5 @@ class BusinessesController < ApplicationController
 		else
 			render json: @business.errors.full_messages, status: 422
 		end
-	end
-
-	def show
-		respond_to :show
 	end
 end

@@ -1,13 +1,12 @@
 VivaVoce::Application.routes.draw do
   resource :session, only: [:create, :destroy, :show]
-  resources :businesses, except: [:destroy, :edit, :new, :update] do
-    # TODO: member {get :search}
+  resources :businesses, only: [:index, :create] do
     resources :photos, except: [:show, :new, :edit]
     resources :reviews, except: [:show, :new, :edit] do
       member {post :vote}
     end
   end
-  resources :users, except: [:new, :edit]
+  resources :users, only: [:create]
 
   root to: "businesses#index"
 
