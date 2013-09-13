@@ -1,6 +1,6 @@
 VivaVoce::Application.routes.draw do
   resource :session, only: [:create, :destroy, :show]
-  resources :businesses do
+  resources :businesses, except: [:destroy, :edit, :new, :update] do
     # TODO: member {get :search}
     resources :photos, except: [:show, :new, :edit]
     resources :reviews, except: [:show, :new, :edit] do

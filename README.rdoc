@@ -13,7 +13,6 @@ of this Yelp clone. Features:
 * Google map integration
 
 == TODO:
-* Add dependencies to related models (And rep)
 * Add search route (and pagination)
 * Catch server-side n+1 sql queries
 * Update business/review/photo pages
@@ -23,3 +22,4 @@ of this Yelp clone. Features:
 * Integrate category search box
 * Rename backbone router
 * Stars? (Progress bar!)
+* Redis chaching

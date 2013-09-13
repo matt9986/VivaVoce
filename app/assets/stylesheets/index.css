@@ -1,3 +1,7 @@
+body {
+  margin: none;
+  padding: 3px;
+}
 .voteBox {
 	display: block;
 	float: left;
@@ -5,6 +9,12 @@
 }
 .reviewListing > li {
 	display: block;
+  margin: 5px;
+  border-color: #1630c7;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 10px;
+  padding: 3px;
 }
 .photoBox {
   display: inline-block;
@@ -21,4 +31,12 @@
 }
 .tabular {
   clear: both;
+}
+.progress {
+  height: 20px;
+  width: 100px;
+}
+.progress:before {
+  content: url(starholes.png);
+  position: absolute;
 }

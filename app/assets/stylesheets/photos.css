@@ -1,5 +1,5 @@
 .showBox {
-  background-color: green;
+  background-color: white;
   width:      600px;
 	z-index:    10;
 	top:        20%;
@@ -9,4 +9,7 @@
 	position:   fixed;
 	text-align: center;
   border-radius: 15px;
+  border-color: #1630c7;
+  border-style: solid;
+  border-width: 4px;
 }

@@ -51,6 +51,10 @@ VivaVoce.Views.ReviewsShow = Backbone.View.extend({
                                                   
   render: function () {
 		this.$el.html(this.template({review: this.model}));
+    this.$el.find(".progress").progressbar({
+      max: 5,
+      value: parseInt(this.$el.find(".progress").attr('value'))
+    });
 		return this;
   }
 

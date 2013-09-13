@@ -1,12 +1,31 @@
 .header {
-  -webkit-box-shadow: 0 0 5px rgba(78, 2, 2, .76);
-  box-shadow: 0 0 5px rgba(78, 2, 2, .76);
+  width: 99%;
+  border-width: 4px;
+  border-color: #1630c7;
+  border-style: solid;
+  padding: 3px;
+  float: center;
 	display: inline-block;
 	text-align: center;
-	width: 100%;
-	background-color: #9d9dff;
+	background-color: white;
+  border-radius: 10px;
 }
 
 .sessionButton {
 	text-align: right;
+}
+
+a:link {
+  text-decoration:none;
+  color: #1630c7;
+}
+
+a:visited {
+  text-decoration:none;
+  color: #1630c7;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #3d50d1;
 }

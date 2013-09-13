@@ -19,6 +19,12 @@ VivaVoce.Views.BusinessesIndex = Backbone.View.extend({
 
 	render: function () {
 		this.$el.html(this.template({businesses: this.collection}));
+    this.$el.find('.progress').each(function(){
+      $(this).progressbar({
+        max: 5,
+        value: parseFloat($(this).attr('value'))
+      });
+    });
     this._addMap();
 		return this;
   },
