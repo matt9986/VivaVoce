@@ -8,7 +8,10 @@ class Review < ActiveRecord::Base
   belongs_to :business
   belongs_to :user
 
-  has_one :stars, class_name: "ReputationSystem::Evaluation", as: :source
+  has_one :stars,
+          class_name: "ReputationSystem::Evaluation",
+          as: :source,
+          dependent: :destroy
 
   has_reputation :votes, source: :user
 end

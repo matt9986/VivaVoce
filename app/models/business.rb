@@ -3,9 +3,9 @@ class Business < ActiveRecord::Base
   validates :name, presence: true
   validates :street_address, :city, :state, :zip, presence: true
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   belongs_to :user
-  has_many :uploads
+  has_many :uploads, dependent: :destroy
 
   has_reputation :stars, source: :review, aggregated_by: :average
   has_reputation :price, source: :user, aggregated_by: :average

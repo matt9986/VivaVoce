@@ -8,12 +8,10 @@ class User < ActiveRecord::Base
   										:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,4})\Z/i, 
   										:on => :create
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :businesses
   has_many :reviewed_businesses, through: :reviews, source: :business
-  has_many :uploads
-
-  # before_create :reset_session
+  has_many :uploads, dependent: :destroy
 
   def password
   	@password || BCrypt::Password.new(self.pass_hash)
