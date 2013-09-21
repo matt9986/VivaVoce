@@ -12,7 +12,7 @@ window.VivaVoce = {
     var header = new this.Views.VivaVoceHeader();
     $rootEl.html(header.render().$el);
     header._add_google_complete(header.$el.find("#business_loc"));
-    new VivaVoce.Routers.Businesses($rootEl, collection);
+    new VivaVoce.Routers.Main($rootEl, collection);
     Backbone.history.start();
   },
 

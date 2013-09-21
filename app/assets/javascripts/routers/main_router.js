@@ -1,4 +1,4 @@
-VivaVoce.Routers.Businesses = Backbone.Router.extend({
+VivaVoce.Routers.Main = Backbone.Router.extend({
 	routes: {
 		"":"index",
 		"businesses/new":"newBusiness",
