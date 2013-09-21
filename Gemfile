@@ -4,6 +4,7 @@ gem 'rails', '3.2.14'
 
 group :production do
 	gem 'mysql2'
+  gem 'thin'
 end
 
 group :developement do
@@ -60,3 +61,6 @@ gem 'figaro'
 
 # To the cloud!
 gem 'aws-sdk'
+
+# Pretty URLs
+gem "friendly_id", "~> 4.0.10"

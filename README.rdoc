@@ -10,12 +10,16 @@ of this Yelp clone. Features:
 * Photo uploads using Paperclip to an AWS S3 server
 * Data safely bootstrapped on initial load
 * Pagination on photos, reviews and businesses
+* Pretty URLs using FriendlyID
 
 == TODO:
-* Add search route (and pagination)
+* Add search route
+* Scrollable/sizable photo divs?
+* new review placement
 * Catch server-side n+1 sql queries
 * Update business/photo pages
 * Clean controllers
 * OmniAuth -- Facebook
 * Rename backbone router
 * Redis chaching
+* Git grep tabs=>spaces

@@ -1,5 +1,9 @@
 class Business < ActiveRecord::Base
+  extend FriendlyId
   attr_accessible :city, :lat, :long, :name, :state, :street_address, :user_id, :zip
+  
+  friendly_id :name, use: :slugged
+  
   validates :name, presence: true
   validates :street_address, :city, :state, :zip, presence: true
 
