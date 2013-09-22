@@ -12,6 +12,7 @@ VivaVoce.Views.UsersNew = Backbone.View.extend({
 
   initialize: function (options) {
 		this.parentView = options.parentView;
+    this.errors = [];
   },
 
   create: function () {
@@ -25,15 +26,15 @@ VivaVoce.Views.UsersNew = Backbone.View.extend({
 				that.remove();
 			},
 			error: function (sent, response) {
-				_.each(response.responseJSON, function (error){
-					that.$el.prepend("<p>"+error+"</p>");
-				});
+        debugger
+        that.errors = response.responseJSON;
+        that.render();
 			}
 		});
   },
 
 	render: function () {
-		this.$el.html(this.template());
+    this.$el.html(this.template({errors: this.errors}));
 		return this;
   },
 

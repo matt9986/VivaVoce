@@ -12,6 +12,7 @@ VivaVoce.Views.SessionCreate = Backbone.View.extend({
 
   initialize: function (options) {
 		this.parentView = options.parentView;
+    this.errors = [];
   },
 
   login: function () {
@@ -25,12 +26,16 @@ VivaVoce.Views.SessionCreate = Backbone.View.extend({
 			success: function (response) {
 				VivaVoce.Store.session.set({username: response.username});
 				that.remove();
-			}
+			},
+      error: function (response) {
+        that.errors = response.responseJSON;
+        that.render();
+      }
 		});
   },
 
 	render: function () {
-		this.$el.html(this.template());
+    this.$el.html(this.template({errors: this.errors}));
 		return this;
   },
 

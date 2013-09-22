@@ -15,7 +15,7 @@ of this Yelp clone. Features:
 == TODO:
 * Scrollable/sizable photo divs?
 * new review placement
-* Catch server-side n+1 sql queries
+* Check for server-side n+1 sql queries
 * Update business/photo pages
 * Clean controllers
 * OmniAuth -- Facebook

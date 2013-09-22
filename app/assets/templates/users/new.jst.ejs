@@ -1,5 +1,8 @@
 <form class="newUser formBox">
 	<h3>Sign Up!</h3>
+  <% _.each(errors, function(error){ %>
+  <p><%= error %></p>
+  <% }) %>
 	<table>
 		<tr>
 			<td>

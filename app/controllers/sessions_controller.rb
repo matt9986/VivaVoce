@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 			log_in(user)
 			render json: {username: user.username}
 		else
-			render json: "There was a problem with your login information", status: 404
+			render json: ["There was a problem with your login information"], status: 404
 		end
 	end
 
