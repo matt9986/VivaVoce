@@ -21,3 +21,4 @@ of this Yelp clone. Features:
 * OmniAuth -- Facebook
 * Redis chaching
 * Git grep tabs=>spaces
+* Map centers on search

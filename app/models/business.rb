@@ -22,7 +22,7 @@ class Business < ActiveRecord::Base
     end
     if query[:name]
       businesses ||= self
-      businesses = businesses.find(:all, :conditions => ['name LIKE ?', "%#{query[:name]}%"])
+      businesses = businesses.where('name LIKE ?', "%#{query[:name]}%")
     end
     return businesses
   end
