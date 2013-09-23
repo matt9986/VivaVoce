@@ -3,14 +3,14 @@ class BusinessesController < ApplicationController
 
 	def index
 		if search = params[:business]
-      @businesses = Business.name_or_loc_search(search)
+      @businesses = Business.name_or_loc_search(search).includes(:reputations)
       if search[:lat] && search[:lng]
   			@businesses.sort_by!{|business| business.dist_from(search[:lat].to_f,
                                                            search[:lng].to_f)}
       end
       Kaminari.paginate_array(@businesses).page(params[:page]).per(10)
 		else
-      @businesses = Business.page(params[:page]).per(10)
+      @businesses = Business.page(params[:page]).per(10).includes(:reputations)
 		end
 		respond_to do |format|
 			format.html {render :index}
