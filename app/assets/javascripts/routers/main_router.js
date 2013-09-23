@@ -13,7 +13,6 @@ VivaVoce.Routers.Main = Backbone.Router.extend({
 	initialize: function ($rootEl, collection) {
 		this.$rootEl = $rootEl;
 		this.collection = collection;
-		collection.fetch();
 	},
 
 	index: function () {
