@@ -52,7 +52,7 @@ class Business < ActiveRecord::Base
           (SIN(RADIANS(? - lat) / 2) **2) + (SIN(RADIANS(? - long) / 2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat))
         ),
         SQRT(
-          1-((SIN(RADIANS(? - lat)/2)**2) + (SIN(RADIANS(? - long) / 2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat)))
+          1-((SIN(RADIANS(? - lat) / 2)**2) + (SIN(RADIANS(? - long) / 2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat)))
         )
       ))
     SQL
