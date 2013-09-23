@@ -47,6 +47,19 @@ class Business < ActiveRecord::Base
     (2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))) * 6371.0 #km
   end
 
+  def self.order_by_dist_from(lat, lng)
+    self.order(<<-SQL, lat, lng, lat, lat, lng, lat)
+      (2*ATAN2(
+        SQRT(
+          (SIN(RADIANS(? - lat) / 2) **2) + (SIN(RADIANS(? - long)/2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat))
+        ),
+        SQRT(
+          1-((SIN(RADIANS(? - lat)/2)**2) + (SIN(RADIANS(? - long)/2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat)))
+        )
+      ))
+    SQL
+  end
+
   def get_lat_long
 # make the user incl lat/lng in submission of new business
   end
