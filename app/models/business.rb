@@ -13,8 +13,6 @@ class Business < ActiveRecord::Base
 
   has_reputation :stars, source: :review, aggregated_by: :average
   has_reputation :price, source: :user, aggregated_by: :average
-
-  before_create :get_lat_long
   
   def self.name_or_loc_search(query)
     if query[:lat] && query[:lng]
@@ -33,7 +31,7 @@ class Business < ActiveRecord::Base
 
     lat_min, lat_max = self.rad_to_deg(lat - r), self.rad_to_deg(lat + r)
 
-    dlon = Math.asin(Math.sin(r)/Math.cos(lat))
+    dlon = Math.asin(Math.sin(r) / Math.cos(lat))
     lng_min, lng_max = self.rad_to_deg(lng - dlon), self.rad_to_deg(lng + dlon)
 
     self.where(lat: lat_min .. lat_max, long: lng_min .. lng_max)
@@ -42,7 +40,7 @@ class Business < ActiveRecord::Base
   def dist_from(lat, lng)
     dlat = self.class.deg_to_rad(lat - self.lat)
     dlon = self.class.deg_to_rad(lng - self.long)
-    a = ((Math.sin(dlat/2)**2)+(Math.sin(dlon/2)**2) *
+    a = ((Math.sin(dlat / 2)**2)+(Math.sin(dlon / 2)**2) *
           Math.cos(self.class.deg_to_rad(lat)) * Math.cos(self.class.deg_to_rad(self.lat)))
     (2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))) * 6371.0 #km
   end
@@ -51,17 +49,13 @@ class Business < ActiveRecord::Base
     self.order(<<-SQL, lat, lng, lat, lat, lng, lat)
       (2*ATAN2(
         SQRT(
-          (SIN(RADIANS(? - lat) / 2) **2) + (SIN(RADIANS(? - long)/2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat))
+          (SIN(RADIANS(? - lat) / 2) **2) + (SIN(RADIANS(? - long) / 2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat))
         ),
         SQRT(
-          1-((SIN(RADIANS(? - lat)/2)**2) + (SIN(RADIANS(? - long)/2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat)))
+          1-((SIN(RADIANS(? - lat)/2)**2) + (SIN(RADIANS(? - long) / 2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat)))
         )
       ))
     SQL
-  end
-
-  def get_lat_long
-# make the user incl lat/lng in submission of new business
   end
 
   private
