@@ -5,8 +5,8 @@ class ReviewsController < ApplicationController
 	def create
 		errors = []
 		params[:review][:user_id] = current_user.id
-		params[:review][:business_id] = params[:business_id]
-		@business = Business.find(params[:business_id])
+    @business = Business.find(params[:business_id])
+    params[:review][:business_id] = @business.id
 		begin
 			ActiveRecord::Base.transaction do
 				@review = Review.new(params[:review])
@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
 
 	def index
 		@business = Business.find(params[:business_id])
-    @reviews = @business.reviews.reverse_order.page(params[:page]).per(15).includes(:user)
+    @reviews = @business.reviews.reverse_order.page(params[:page]).per(15).includes(:user, :stars, :reputations)
 	end
 
 	def update
