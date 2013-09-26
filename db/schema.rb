@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(:version => 20130921215103) do
   create_table "reviews", :force => true do |t|
     t.string   "body"
     t.integer  "business_id"
-    t.integer  "user_id",     :limit => 255
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "reviews", ["business_id"], :name => "index_reviews_on_business_id"

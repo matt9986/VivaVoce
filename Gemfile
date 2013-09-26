@@ -8,7 +8,8 @@ group :production do
 end
 
 group :developement do
-	gem 'sqlite3'
+#	gem 'sqlite3'
+  gem 'mysql2'
 end
 
 
