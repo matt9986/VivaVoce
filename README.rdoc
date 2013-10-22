@@ -22,3 +22,4 @@ of this Yelp clone. Features:
 * Redis chaching
 * Git grep tabs=>spaces
 * Map centers on search
+* User loc -- using navigator.geolocation

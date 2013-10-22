@@ -17,6 +17,7 @@ class Business < ActiveRecord::Base
   def self.name_or_loc_search(query)
     if query[:lat] && query[:lng]
       businesses = self.find_near_coord(query[:lat].to_f, query[:lng].to_f)
+      businesses = businesses.order_by_dist_from(query[:lat].to_f, query[:lng].to_f)
     end
     if query[:name]
       businesses ||= self
@@ -46,15 +47,19 @@ class Business < ActiveRecord::Base
   end
 
   def self.order_by_dist_from(lat, lng)
-    self.order(<<-SQL, lat, lng, lat, lat, lng, lat)
+    self.order(sanitize_sql([<<-SQL, { lat: lat, lng: lng }]))
       (2*ATAN2(
         SQRT(
-          (SIN(RADIANS(? - lat) / 2) **2) + (SIN(RADIANS(? - long) / 2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat))
+          POW(SIN(RADIANS(:lat - businesses.lat) / 2), 2) +
+            POW(SIN(RADIANS(:lng - businesses.long) / 2), 2) *
+          COS(RADIANS(:lat)) * COS(RADIANS(businesses.lat))
         ),
         SQRT(
-          1-((SIN(RADIANS(? - lat) / 2)**2) + (SIN(RADIANS(? - long) / 2)**2) * COS(RADIANS(?)) * COS(RADIANS(lat)))
+          1-(POW(SIN(RADIANS(:lat - businesses.lat) / 2), 2) +
+            POW(SIN(RADIANS(:lng - businesses.long) / 2), 2) *
+            COS(RADIANS(:lat)) * COS(RADIANS(businesses.lat)))
         )
-      ))
+      )) 
     SQL
   end
 
