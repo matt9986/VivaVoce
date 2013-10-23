@@ -60,11 +60,12 @@ VivaVoce.Routers.Main = Backbone.Router.extend({
     var view = new VivaVoce.Views.BusinessesIndex({collection: searchresults});
     if (data.business.loc) {
       this._getGeoData(data, function(data) {
+        var newCenter = new google.maps.LatLng(data.business.lat, data.business.lng);
         searchresults.fetch({data: data, success: function () {
           view.render();
           that._swapView(view);
           google.maps.event.trigger(view.map, "resize");
-          view.map.setCenter(view.center);
+          view.map.setCenter(newCenter);
          }});
       });
     }else{
